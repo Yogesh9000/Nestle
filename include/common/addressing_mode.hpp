@@ -1,7 +1,7 @@
 #pragma once
 
 enum class AddressingMode {
-  Implicit,
+  Implied,
   Accumulator,
   Immediate,
   ZeroPage,
