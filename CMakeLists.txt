@@ -6,7 +6,9 @@ project(nestle
 )
 
 add_library(project_settings INTERFACE)
-target_compile_features(project_settings INTERFACE cxx_std_23)
+target_compile_features(project_settings INTERFACE cxx_std_20)
+
+include_directories("${PROJECT_SOURCE_DIR}/include")
 
 add_subdirectory("src")
 
