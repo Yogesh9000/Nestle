@@ -18,82 +18,82 @@ std::vector<std::string> Disassembler::Disassemble(DataSource &source)
     switch (opcodes[opcode].mode) {
 
     case AddressingMode::Implied: {
-      auto instruction = std::format("{:<4x}: {}", byteOffset, opcodes[opcode].name);
+      auto instruction = std::format("{:0>4X}: {}", byteOffset, opcodes[opcode].name);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::Accumulator: {
-      auto instruction = std::format("{:<4x}: {} A", byteOffset, opcodes[opcode].name);
+      auto instruction = std::format("{:0>4X}: {} A", byteOffset, opcodes[opcode].name);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::Immediate: {
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} #{:02}", byteOffset, opcodes[opcode].name, op1);
+      auto instruction = std::format("{:0>4X}: {} #{:02X}", byteOffset, opcodes[opcode].name, op1);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::ZeroPage: {
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} ${:02}", byteOffset, opcodes[opcode].name, op1);
+      auto instruction = std::format("{:0>4X}: {} ${:02X}", byteOffset, opcodes[opcode].name, op1);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::ZeroPageX: {
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} ${:02}, X", byteOffset, opcodes[opcode].name, op1);
+      auto instruction = std::format("{:0>4X}: {} ${:02X}, X", byteOffset, opcodes[opcode].name, op1);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::ZeroPageY: {
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} ${:02}, Y", byteOffset, opcodes[opcode].name, op1);
+      auto instruction = std::format("{:0>4X}: {} ${:02X}, Y", byteOffset, opcodes[opcode].name, op1);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::Relative: {
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} #{:02}, PC", byteOffset, opcodes[opcode].name, op1);
+      auto instruction = std::format("{:0>4X}: {} ${:02X}", byteOffset, opcodes[opcode].name, op1);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::Absolute: {
       auto op2 = source.ReadNextByte();
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} #{:02}{:02}", byteOffset, opcodes[opcode].name, op1, op2);
+      auto instruction = std::format("{:0>4x}: {} ${:02X}{:02X}", byteOffset, opcodes[opcode].name, op1, op2);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::AbsoluteX: {
       auto op2 = source.ReadNextByte();
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} #{:02}{:02}, X", byteOffset, opcodes[opcode].name, op1, op2);
+      auto instruction = std::format("{:0>4x}: {} ${:02X}{:02X}, X", byteOffset, opcodes[opcode].name, op1, op2);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::AbsoluteY: {
       auto op2 = source.ReadNextByte();
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} #{:02}{:02}, Y", byteOffset, opcodes[opcode].name, op1, op2);
+      auto instruction = std::format("{:0>4X}: {} ${:02X}{:02X}, Y", byteOffset, opcodes[opcode].name, op1, op2);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::Indirect: {
       auto op2 = source.ReadNextByte();
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} ({:02}{:02})", byteOffset, opcodes[opcode].name, op1, op2);
+      auto instruction = std::format("{:0>4X}: {} (${:02X}{:02X})", byteOffset, opcodes[opcode].name, op1, op2);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::IndexedIndirect: {
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} ({:02}, X)", byteOffset, opcodes[opcode].name, op1);
+      auto instruction = std::format("{:0>4x}: {} (${:02X}, X)", byteOffset, opcodes[opcode].name, op1);
       disassembly.emplace_back(instruction);
     } break;
 
     case AddressingMode::IndirectIndexed: {
       auto op1 = source.ReadNextByte();
-      auto instruction = std::format("{:<4x}: {} ({:02}), Y", byteOffset, opcodes[opcode].name, op1);
+      auto instruction = std::format("{:0>4x}: {} (${:02X}), Y", byteOffset, opcodes[opcode].name, op1);
       disassembly.emplace_back(instruction);
     } break;
 
