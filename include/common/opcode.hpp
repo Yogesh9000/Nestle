@@ -13,11 +13,12 @@ struct Opcode
   bool extraCycle{};
   AddressingMode mode;
   bool isIllegal{};
+
+  constexpr static int NUM_OPCODES{ 0xFF + 1 };
+  const static std::array<Opcode, NUM_OPCODES> opcodes;
 };
 
-constexpr int NUM_OPCODES{ 0xFF + 1 };
-
-constexpr std::array<Opcode, NUM_OPCODES> opcodes{ {
+constexpr std::array<Opcode, Opcode::NUM_OPCODES> Opcode::opcodes{ {
   { "BRK", 1, 7, false, AddressingMode::Implied, false },
   { "ORA", 2, 6, false, AddressingMode::IndexedIndirect, false },
   { "JAM", 1, -1, false, AddressingMode::Implied, true },
