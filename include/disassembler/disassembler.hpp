@@ -10,7 +10,7 @@ namespace ns {
 class Disassembler
 {
 public:
-  static std::vector<std::string> Disassemble(DataSource &);
+  static std::vector<std::string> Disassemble(IDataSource &);
 };
 
 }// namespace ns

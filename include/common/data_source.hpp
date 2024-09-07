@@ -3,10 +3,10 @@
 #include <cstdint>
 namespace ns {
 
-class DataSource
+class IDataSource
 {
 public:
-  virtual ~DataSource() = default;
+  virtual ~IDataSource() = default;
 
   // Returns true if reached end of DataSource
   virtual bool ReachedEof() = 0;

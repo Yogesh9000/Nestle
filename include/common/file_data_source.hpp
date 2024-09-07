@@ -6,7 +6,7 @@
 
 namespace ns {
 
-class FileDataSource : public DataSource
+class FileDataSource : public IDataSource
 {
 public:
   // Opens a file for reading, may throw a exception if failed to open the file.

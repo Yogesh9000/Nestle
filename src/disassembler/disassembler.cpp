@@ -11,7 +11,7 @@ using namespace ns;
 
 auto &opcodes = Opcode::opcodes;
 
-std::vector<std::string> Disassembler::Disassemble(DataSource &source)
+std::vector<std::string> Disassembler::Disassemble(IDataSource &source)
 {
   std::vector<std::string> disassembly{};
   while (!source.ReachedEof()) {
