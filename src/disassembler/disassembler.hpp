@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "common/data_source.hpp"
+#include "disassembler/data_source.hpp"
 namespace ns {
 
 class Disassembler

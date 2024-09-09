@@ -1,5 +1,5 @@
 #include "disassembler/disassembler.hpp"
-#include "common/data_source.hpp"
+#include "disassembler/data_source.hpp"
 #include <cstdint>
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
@@ -7,7 +7,7 @@
 using namespace ns;
 using namespace testing;
 
-class MockDataSource : public DataSource
+class MockDataSource : public IDataSource
 {
 public:
   MOCK_METHOD(bool, ReachedEof, (), (override));

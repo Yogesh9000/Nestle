@@ -1,6 +1,8 @@
 #pragma once
 
+#include "common/typedefs.hpp"
 #include <cstdint>
+
 namespace ns {
 
 class IDataSource
@@ -12,7 +14,7 @@ public:
   virtual bool ReachedEof() = 0;
 
   // Reads the next byte from DataSource
-  virtual uint8_t ReadNextByte() = 0;
+  virtual u8 ReadNextByte() = 0;
 
   // Returns the offset of next byte which will be read.
   virtual int GetByteOffset() = 0;

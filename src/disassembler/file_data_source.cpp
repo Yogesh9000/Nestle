@@ -2,7 +2,8 @@
 #include <format>
 #include <stdexcept>
 
-#include "common/file_data_source.hpp"
+#include "common/typedefs.hpp"
+#include "disassembler/file_data_source.hpp"
 
 using namespace ns;
 
@@ -15,11 +16,11 @@ void FileDataSource::Open(const std::string &fileName)
 
 bool FileDataSource::ReachedEof() { return file.eof(); }
 
-uint8_t FileDataSource::ReadNextByte()
+u8 FileDataSource::ReadNextByte()
 {
   char byte{};
   file.read(&byte, 1);
   return static_cast<uint8_t>(byte);
 }
 
-int FileDataSource::GetByteOffset() { return file.tellg(); }
+int FileDataSource::GetByteOffset() { return static_cast<int>(file.tellg()); }

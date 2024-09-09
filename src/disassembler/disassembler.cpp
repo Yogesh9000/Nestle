@@ -3,8 +3,8 @@
 #include <vector>
 
 #include "common/addressing_mode.hpp"
-#include "common/data_source.hpp"
 #include "common/opcode.hpp"
+#include "disassembler/data_source.hpp"
 #include "disassembler/disassembler.hpp"
 
 using namespace ns;
