@@ -14,7 +14,7 @@ struct Opcode
   AddressingMode mode;
   bool isIllegal{};
 
-  constexpr static int NUM_OPCODES{ 0xFF + 1 };
+  constexpr static int NUM_OPCODES{ 0x100 };
   const static std::array<Opcode, NUM_OPCODES> opcodes;
 };
 

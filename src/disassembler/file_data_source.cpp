@@ -2,7 +2,7 @@
 #include <format>
 #include <stdexcept>
 
-#include "common/typedefs.hpp"
+#include "common/common.hpp"
 #include "disassembler/file_data_source.hpp"
 
 using namespace ns;

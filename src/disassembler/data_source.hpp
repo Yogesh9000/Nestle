@@ -1,6 +1,6 @@
 #pragma once
 
-#include "common/typedefs.hpp"
+#include "common/common.hpp"
 #include <cstdint>
 
 namespace ns {
