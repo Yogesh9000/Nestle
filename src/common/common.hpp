@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <iostream>
 
 using u8 = uint8_t;
 using u16 = uint16_t;
@@ -9,3 +10,11 @@ using u16 = uint16_t;
 #define STRINGIFY(x) STRINGIFY_DETAIL(x)
 
 #define UNIMPLEMENTED() static_assert(false, "Function not yet implemented in: " __FILE__ ":" STRINGIFY(__LINE__))
+
+#define WARNING(x) std::cerr << "\033[1;33m[WARNING]\033[0m " << (x) << '\n';
+
+#define ERROR(x)                                             \
+  {                                                          \
+    std::cerr << "\033[1;31m[ERROR]\033[0m " << (x) << '\n'; \
+    std::exit(1);                                            \
+  }
